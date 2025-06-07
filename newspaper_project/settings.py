@@ -18,6 +18,8 @@ else:
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['https://example.com'])
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
