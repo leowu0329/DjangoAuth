@@ -21,12 +21,14 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['https://example.com'])
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
     'cloudinary_storage',
     'cloudinary',
     "crispy_forms",
@@ -128,3 +130,15 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = env('EMAIL_ADDRESS')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
+
+JAZZMIN_SETTINGS = {
+    'site_title': '毛毛與秀秀的資料庫',
+    'site_header': 'Hello World',
+    'site_brand': 'I am brand',
+    'welcome_sign': '歡迎來到毛毛與秀秀的資料庫',
+    'copyright': 'ryowuandjanet.com',
+}
+
+from import_export.formats.base_formats import XLSX, CSV,JSON
+EXPORT_FORMATS = [XLSX, CSV,JSON]
+IMPORT_FORMATS = [XLSX, CSV,JSON]
