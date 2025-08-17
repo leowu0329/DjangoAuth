@@ -73,6 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'src.wsgi.application'
 
+LOGIN_URL = 'login'  # 未登入時自動跳轉的 URL 名稱
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 

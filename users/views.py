@@ -1,14 +1,20 @@
 from django.urls import reverse_lazy
 from django.views import generic
 from .forms import CustomUserCreationForm
-from django.contrib.auth.views import PasswordResetConfirmView
+from django.contrib.auth.views import PasswordResetConfirmView,LogoutView,LoginView
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
 from .models import Profile
 from .forms import ProfileForm
 
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+    
+    def get_success_url(self):
+        # 登入成功後跳轉到首頁
+        return reverse_lazy('home')
+        
 class SignUp(generic.CreateView):
 	form_class = CustomUserCreationForm
 	success_url = reverse_lazy('login')
