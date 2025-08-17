@@ -25,7 +25,7 @@ class ProfileView(LoginRequiredMixin, UpdateView):
     model = Profile
     form_class = ProfileForm
     template_name = 'registration/profile.html'
-    success_url = reverse_lazy('profile')
+    success_url = reverse_lazy('home')
     
     def get_object(self, queryset=None):
         # Get or create profile for the current user
